@@ -1,0 +1,54 @@
+.rating {
+    
+    &__stars {
+        display: inline-block;
+    }
+
+    &__star {
+        display: inline-block;
+        width: 27px;
+        height: 27px;
+        background: url(img/rating-star.png);
+        background-size: 100%;
+        margin-right: 10px;
+
+        &_empty {
+            background: url(img/rating-star-empty.png);
+            background-size: 100%;
+        }
+
+        &_14 {
+            background: url(img/rating-star-14.png);
+            background-size: 100%;
+        }
+
+        &_half {
+            background: url(img/rating-star-half.png);
+            background-size: 100%;
+        }
+
+        &_34 {
+            background: url(img/rating-star-34.png);
+            background-size: 100%;
+        }
+
+    }
+
+    &__point {
+        display: inline-block;
+        font-family: 'Open Sans', sans-serif;
+        font-size: 18px;
+        font-weight: 400;
+        color: #fff;
+        padding: 2px 8px;
+        border: 2px solid #3bb4e0;
+        border-radius: 3px;
+        vertical-align: top;
+
+        &_blue {
+            color: #3bb4e0;
+            font-weight: 600;
+            margin-left: 15px;
+        }
+    }
+}

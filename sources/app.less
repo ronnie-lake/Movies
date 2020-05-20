@@ -1,0 +1,28 @@
+h1, h2, h3, h4, h5, h6, p, ul {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.container {
+    width: 1590px;
+    margin: 0 auto;
+
+    @media (max-width: 1650px) {
+        width: 1200px; 
+    }
+
+    @media (max-width: 1250px) {
+        width: 960px; 
+    }
+
+    &_flex {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+    }
+}

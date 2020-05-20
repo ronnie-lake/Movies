@@ -1,0 +1,65 @@
+.menu {
+
+    &__item {
+        display: inline-block;
+        margin-right: 40px;
+        font-family: 'Open Sans', sans-serif;
+        font-size: 19px;
+        font-weight: 600;
+        color: #0aaee4;
+        position: relative;
+        padding: 0 0 10px 0;
+        cursor: pointer;
+
+        &_active {
+            border-bottom: 2px solid #0aaee4;
+            margin-bottom: -2px;
+        }
+    
+        &_dropout {
+
+            &:active {
+                border-bottom: none;
+            }
+    
+            &::after {
+                content: '';
+                display: inline-block;
+                width: 13px;
+                height: 9px;
+                background: url(img/drop.png) no-repeat;
+                background-size: 100%;
+                margin-left: 14px;
+            }
+
+            &:hover .menu__dropmenu{
+                display: block;
+            }
+    
+        }
+    }
+
+    &__dropmenu {
+        list-style: none;
+        display: none;
+        overflow: hidden;
+        position: absolute;
+        z-index: 1000;
+        left: 0;
+        background-color: #fff;
+        margin-bottom: 5px;
+    }
+
+    &__drop-item {
+        font-family: 'Open Sans', sans-serif;
+        font-size: 18px;
+        font-weight: 600;
+        color: #0aaee4;
+        padding: 15px 20px;
+
+        &:hover {
+            background-color: #0aaee4;
+            color: #fff;
+        }
+    }
+}

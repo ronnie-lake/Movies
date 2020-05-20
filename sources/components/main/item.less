@@ -1,0 +1,215 @@
+.item {
+    height: 450px;
+    overflow: hidden;
+    border-radius: 4px;
+    background-color: #fff;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 460px;
+    
+    &__main {
+        overflow: hidden;
+        position: relative;
+        flex-grow: 2;
+        
+        &:hover .item__hover {
+            display: flex;
+        }
+    }
+    
+    &__img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    
+    &__hover {
+        text-align: center;
+        position: relative;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.6);
+        flex-direction: column;
+        padding-top: 75px;
+        align-items: center;
+        display: none;
+        transition: ease-in-out 0.2s all;
+    }
+    
+    &__play {
+        display: inline-block;
+        width: 88px;
+        height: 88px;
+        background: url(img/play.png) no-repeat;
+        background-size: 100%;
+        margin-bottom: 6px;
+        cursor: pointer;
+    }
+    
+    &__watch {
+        display: block;
+        font-family: 'Open Sans', sans-serif;
+        font-size: 20px;
+        font-weight: 400;
+        color: #fff;
+    }
+    
+    &__button {
+        display: inline-block;
+        font-family: 'Open Sans', sans-serif;
+        font-size: 22px;
+        font-weight: 400;
+        color: #fff;
+        border-radius: 3px;
+        border: 2px solid #fff;
+        padding: 10px 23px;
+        margin-top: 22px;
+        cursor: pointer;
+        transition: ease-in-out 0.2s all;
+        
+        &:hover {
+            border: 2px solid #3bb4e0;
+            background-color: #3bb4e0;
+        }
+    }
+
+    &__description {
+        padding: 42px 32px 32px 32px;
+        z-index: 1;
+        background-color: #fff;
+        flex-grow: 0;
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+    }
+    
+    &__name {
+        display: inline-block;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 240px;
+        font-family: 'Open Sans', sans-serif;
+        font-size: 20px;
+        font-weight: 700;
+        color: #000;
+        text-transform: uppercase;
+    }
+    
+    &__point {
+        display: inline-block;
+        font-family: 'Open Sans', sans-serif;
+        font-size: 18px;
+        font-weight: 600;
+        color: #3bb4e0;
+        padding: 1px 0;
+        border: 2px solid #3bb4e0;
+        text-align: center;
+        border-radius: 3px;
+        vertical-align: top;
+        margin-left: 29px;
+        width: 42px;
+    }
+    
+    &__genres {
+        display: inline-block;
+        font-family: 'Open Sans', sans-serif;
+        font-size: 16px;
+        font-weight: 600;
+        color: #0aaee4;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 240px;
+    }
+}
+
+.info {
+    width: 100%;
+    height: 100%;
+    position: relative;   
+    position: absolute;
+    bottom: 0;
+    left: 0; 
+    height: 0;
+    overflow: hidden;
+    transition: ease-in-out 0.2s height;
+
+    &__block {
+        height: 100%;
+    }
+    
+    &__img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 0;
+    }
+    
+    &__wrapper {
+        padding: 42px 32px 32px 32px;
+        background: rgba(0, 0, 0, 0.5);
+        width: 100%;
+        height: 100%;
+        box-sizing: border-box;
+        position: relative;
+        z-index: 1;
+    }
+
+    &__cancel {
+        display: block;
+        width: 20px;
+        height: 20px;
+        background: url(img/cancel.png) no-repeat;
+        background-size: 100%;
+        cursor: pointer;
+        margin-bottom: 40px;
+    }
+
+    &__name {
+        display: inline-block;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 240px;
+        font-family: 'Open Sans', sans-serif;
+        font-size: 20px;
+        font-weight: 700;
+        color: #fff;
+        text-transform: uppercase;
+        margin: 0 29px 15px 0;
+    }
+
+    &__point {
+        display: inline-block;
+        font-family: 'Open Sans', sans-serif;
+        font-size: 18px;
+        font-weight: 600;
+        color: #3bb4e0;
+        padding: 1px 6px;
+        border: 2px solid #3bb4e0;
+        border-radius: 3px;
+        vertical-align: top;
+    }
+
+    &__genres {
+        display: inline-block;
+        width: 240px;
+        font-family: 'Open Sans', sans-serif;
+        font-size: 16px;
+        font-weight: 600;
+        color: #0aaee4;
+    }
+
+    &__text {
+        font-family: 'Open Sans', sans-serif;
+        font-size: 18px;
+        font-weight: 400;
+        color: #fff;
+        margin: 27px 0 35px 0;
+        line-height: 25px;
+    }
+}

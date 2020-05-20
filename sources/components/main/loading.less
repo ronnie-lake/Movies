@@ -1,0 +1,44 @@
+.loading {
+    margin: 30px auto 0;
+    width: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &__ball {
+        display: inline-block;
+        animation-name:bounces;
+        animation-duration:1.44s;
+        animation-iteration-count:infinite;
+        animation-direction:normal;
+        border-radius:20px;
+
+        &_1 {
+            animation-delay:0.25s;
+            width: 11px;
+            height: 11px;
+        }
+
+        &_2 {
+            animation-delay:0.85s;  
+            width: 15px;
+            height: 15px;
+        }
+        
+        &_3 {
+            animation-delay:1.15s;
+            width: 9px;
+            height: 9px;
+        }
+    }
+}
+
+@keyframes bounces{
+	0%{}
+
+	50%{
+		background-color: #0aaee4;
+	}
+
+	100%{}
+}
