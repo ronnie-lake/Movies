@@ -7,10 +7,16 @@
         width: 25px;
         height: 25px;
         cursor: pointer;
+        transition: ease-in-out 0.2s all;
 
         &_grid {
             background: url(img/grid-off.png) no-repeat;
             background-size: 100%;
+
+            &:hover {
+            background: url(img/grid-on.png) no-repeat;
+            background-size: 100%;
+            }
         }
 
         &_grid-active {
@@ -22,6 +28,11 @@
             margin-left: 11px;
             background: url(img/table-off.png) no-repeat;
             background-size: 100%;
+
+            &:hover {
+                background: url(img/table-on.png) no-repeat;
+                background-size: 100%;
+            }
         }
 
         &_table-active {

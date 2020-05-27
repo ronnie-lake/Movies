@@ -1,10 +1,11 @@
 .filter {
     list-style: none;
-    margin: 18px 0 12px;
+    margin: 40px 0 12px;
 
     &__item {
         display: inline-block;
         background-color: #0aaee4;
+        border: 2px solid #0aaee4;
         color: #fff;
         font-family: 'Open Sans', sans-serif;
         font-size: 18px;
@@ -14,5 +15,18 @@
         margin-right: 7px;
         margin-bottom: 7px;
         cursor: pointer;
+        transition: ease-in-out 0.2s all;
+        
+        &:hover {
+            background-color: #fff;
+            color: #0aaee4;
+            border: 2px solid #0aaee4;
+        }
+
+        &_active {
+            background-color: #fff;
+            color: #0aaee4;
+            border: 2px solid #0aaee4;
+        }
     }
 }

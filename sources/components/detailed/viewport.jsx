@@ -1,6 +1,6 @@
 import React from 'react';
 import './viewport.less';
-import Search from './search.jsx';
+import Search from '../viewport/search.jsx';
 import Film from './film.jsx';
 import Description from './description.jsx';
 

@@ -41,7 +41,7 @@ class Filter extends React.Component {
                     this.props.genres.map((el, index) => (   
                         <li 
                             key={index} 
-                            className='filter__item' 
+                            className={`filter__item ${el.id === this.props.activeGenreID ? 'filter__item_active' : ''}`} 
                             onClick={() => {
                                 if(el.id === this.props.activeGenreID) return;
                                 this.props.changeGenreID(el.id)

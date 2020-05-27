@@ -9,23 +9,28 @@ import getTopRated from '../../actions/getTopRated.jsx';
 import getComingSoon from '../../actions/getComingSoon.jsx';
 import getGenres from '../../actions/genres.jsx';
 import getMovieOfCetainGenre from '../../actions/getMovieOfCetainGenre.jsx';
+import { NavLink } from 'react-router-dom';
 
 const itemIDArr = [
     {
         id: 'item1',
-        text: 'Trending'
+        text: 'Trending',
+        link: 'trending'
     },
     {
         id: 'item2',
-        text: 'Top Rated'
+        text: 'Top Rated',
+        link: 'top-rated'
     },
     {
         id: 'item3',
-        text: 'Coming Soon'
+        text: 'Coming Soon',
+        link: 'coming-soon'
     },
     {
         id: 'item4',
-        text: 'Genre'
+        text: 'Genre',
+        link: 'genre'
     }
 ]
 
@@ -40,14 +45,18 @@ class Menu extends React.Component {
 
     render() {
         return(
+            <>
             <ul className='menu'>
                 {
                     itemIDArr.map((el, index) => {
-                        return <li key={index} className={`menu__item ${this.props.menuItemID === el.id ? 'menu__item_active' : ''}`} onClick={this.switcher} id={el.id}>{el.text}</li>
-
+                        return <NavLink exact to={`/${el.link}`}>
+                                <li key={index} className={`menu__item ${this.props.menuItemID === el.id ? 'menu__item_active' : ''}`} 
+                            onClick={this.switcher} id={el.id}>{el.text}</li>
+                                </NavLink>
                     })
                 }
             </ul>
+            </>
         )
     }
 }

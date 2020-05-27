@@ -1,6 +1,6 @@
 import React from 'react';
 import './itemTable.less';
-import Rating from '../viewport/rating.jsx';
+import Rating from '../detailed/rating.jsx';
 import { connect } from 'react-redux';
 
 class ItemTable extends React.Component {

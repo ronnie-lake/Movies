@@ -1,6 +1,8 @@
 import React from 'react';
 import './item.less';
 import { connect } from 'react-redux';
+import { NavLink } from 'react-router-dom'; 
+import Detailed from '../detailed/detailed.jsx';
 
 class Item extends React.Component {
     constructor(props) {
@@ -31,7 +33,9 @@ class Item extends React.Component {
                     <img src={`https://image.tmdb.org/t/p/w500${poster_path}`} className="item__img" />
                     <div className="item__main">
                         <div className="item__hover">
-                            <span className="item__play"></span>
+                             <NavLink to='/detailed'>
+                                <span className="item__play"></span>
+                            </NavLink>
                             <span className="item__watch">Watch Now</span>
                             <div className="item__button" onClick={this.switcher}>View Info</div>
                         </div>
