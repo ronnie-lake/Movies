@@ -10,6 +10,7 @@ const initialState = {
 window.state = initialState;
 
 function reducer (state = initialState, action) {
+    console.log(action);
     switch(action.type){
         case 'CHANGE_VIEW':
             return {...state, gridIsEnabled: action.data};
@@ -21,8 +22,9 @@ function reducer (state = initialState, action) {
             return {...state, genres: action.data, activeGenreID: action.data[0].id};
         case 'MOVIE_PAGES_COUNTER_CHANGE':
             return {...state, moviePagesCounter: action.data};
-        case 'CHANGE_GENRE_ID':
+        case 'CHANGE_GENRE_ID':{
             return {...state, activeGenreID: action.data, moviePagesCounter: 1, movies: []};
+        }
     }
     return state;
 }

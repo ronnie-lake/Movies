@@ -6,33 +6,6 @@ import getMovieOfCetainGenre from '../../actions/getMovieOfCetainGenre.jsx';
 import changeGenreID from '../../actions/changeGenreID.jsx';
 
 class Filter extends React.Component {
-    genresCreate = () => {
-        // const movieArr = this.props.movies;
-        // let allGenres = [];
-        // for(let i = 0; i < movieArr.length; i++){
-        //     let genres = movieArr[i].genres;
-        //     for(let a = 0; a < genres.length; a++){
-        //         if(allGenres.indexOf(genres[a]) < 0) {
-        //             allGenres.push(genres[a]);
-        //         }
-        //     }
-        // };
-        // return allGenres.sort();
-
-        // const genresArr = [];
-        // const genresID = {};
-        // for(let key in this.props.genres){
-        //     genresArr.push(this.props.genres[key]);
-        //     genresID[this.props.genres[key]] = key;
-        // }
-        // return genresArr.sort();
-    }
-
-    // addGenreID = () => {
-    //     for(let key in this.props.genres){
-    //         genresArr.push(this.props.genres[key])
-    //     }
-    // }
 
     render() {
         return (
@@ -44,7 +17,11 @@ class Filter extends React.Component {
                             className={`filter__item ${el.id === this.props.activeGenreID ? 'filter__item_active' : ''}`} 
                             onClick={() => {
                                 if(el.id === this.props.activeGenreID) return;
-                                this.props.changeGenreID(el.id)
+                                Promise.resolve( this.props.changeGenreID(el.id)).then(()=>{
+                                    this.props.getMovieOfCetainGenre(this.props.activeGenreID, this.props.moviePagesCounter);
+                                }).then(()=>{
+                                    this.props.moviePagesCounterChange(this.props.moviePagesCounter + 1)
+                                });
                             }}
                         >{el.name}</li>
                     ))

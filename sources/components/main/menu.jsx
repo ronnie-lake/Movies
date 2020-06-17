@@ -3,11 +3,10 @@ import './menu.less'
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import changeMenuItem from '../../actions/menu.jsx';
-import clearMovies from '../../actions/clearMovies.jsx';
+// import clearMovies from '../../actions/clearMovies.jsx';
 import getMovies from '../../actions/movies.jsx';
 import getTopRated from '../../actions/getTopRated.jsx';
 import getComingSoon from '../../actions/getComingSoon.jsx';
-import getGenres from '../../actions/genres.jsx';
 import getMovieOfCetainGenre from '../../actions/getMovieOfCetainGenre.jsx';
 import { NavLink } from 'react-router-dom';
 
@@ -36,12 +35,10 @@ const itemIDArr = [
 
 class Menu extends React.Component {
 
-    switcher = (e) => {
-        if (this.props.menuItemID === e.target.id) return;
-        this.props.changeMenuItem(e.target.id);
-        // this.props.clearMovies();
-
-    }
+    // switcher = (e) => {
+    //     if (this.props.menuItemID === e.target.id) return;
+    //     this.props.changeMenuItem(e.target.id);
+    // }
 
     render() {
         return(
@@ -49,9 +46,9 @@ class Menu extends React.Component {
             <ul className='menu'>
                 {
                     itemIDArr.map((el, index) => {
-                        return <NavLink exact to={`/${el.link}`}>
-                                <li key={index} className={`menu__item ${this.props.menuItemID === el.id ? 'menu__item_active' : ''}`} 
-                            onClick={this.switcher} id={el.id}>{el.text}</li>
+                        return <NavLink key={index} exact to={`/${el.link}`}>
+                                <li className={`menu__item ${this.props.menuItemID === el.id ? 'menu__item_active' : ''}`} 
+                                id={el.id}>{el.text}</li>
                                 </NavLink>
                     })
                 }
@@ -70,11 +67,10 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => bindActionCreators({
     changeMenuItem,
-    clearMovies,
+    // clearMovies,
     getMovies,
     getTopRated,
     getComingSoon,
-    getGenres,
     getMovieOfCetainGenre
 
 }, dispatch);

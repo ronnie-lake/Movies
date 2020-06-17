@@ -2,6 +2,7 @@ import React from 'react';
 import './itemTable.less';
 import Rating from '../detailed/rating.jsx';
 import { connect } from 'react-redux';
+import { NavLink } from 'react-router-dom';
 
 class ItemTable extends React.Component {
 
@@ -22,7 +23,9 @@ class ItemTable extends React.Component {
                 <div className="item-table__img-wrapper">
                     <img src={`https://image.tmdb.org/t/p/w500${poster_path}`} className="item-table__img" />
                     <div className="item-table__hover">
-                        <span className="item-table__play"></span>
+                        <NavLink exact to='/detailed'>
+                            <span className="item-table__play"></span>
+                        </NavLink>
                         <span className="item-table__watch">Watch Now</span>
                     </div>
                 </div>

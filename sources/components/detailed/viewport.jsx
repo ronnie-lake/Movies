@@ -3,6 +3,7 @@ import './viewport.less';
 import Search from '../viewport/search.jsx';
 import Film from './film.jsx';
 import Description from './description.jsx';
+import { NavLink } from 'react-router-dom';
 
 class Viewport extends React.Component {
     render() {
@@ -11,7 +12,9 @@ class Viewport extends React.Component {
                 <img className='viewport__img' src="img/cover-image.jpg" />
                 <div className='header'>
                     <div className='container container_flex'>
-                        <a className='header__logo'>Films</a>
+                        <NavLink exact to='/trending'>
+                            <a className='header__logo'>Films</a>
+                        </NavLink>
                         <Search />
                     </div>
                 </div>

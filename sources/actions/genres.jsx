@@ -5,18 +5,6 @@ function getGenres(){
             return response.json()
         }).then((genres) => {
             let genresArr = genres.genres;
-            console.log(genresArr);
-          
-            // let genresObj = genresArr.reduce((prev, el) => {
-            //     prev[el.id] = el.name;
-            //     return prev;
-            // }, {});
-
-            // let sortGenres = {}
-            // genresArr.map((el, index) => {
-            //     sortGenres[el.id] = el.name;
-            // })
-
             dispatch({
                 type: 'GET_GENRES',
                 data: genresArr
