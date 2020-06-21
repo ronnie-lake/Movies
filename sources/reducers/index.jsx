@@ -4,7 +4,10 @@ const initialState = {
     gridIsEnabled: true,
     menuItemID: 'item1',
     moviePagesCounter: 1,
-    activeGenreID: null
+    activeGenreID: null,
+    searchPhrase: '',
+    foundMovies: [],
+    dropdownIsOpen: false
 }
 
 window.state = initialState;
@@ -22,9 +25,17 @@ function reducer (state = initialState, action) {
             return {...state, genres: action.data, activeGenreID: action.data[0].id};
         case 'MOVIE_PAGES_COUNTER_CHANGE':
             return {...state, moviePagesCounter: action.data};
-        case 'CHANGE_GENRE_ID':{
+        case 'CHANGE_GENRE_ID':
             return {...state, activeGenreID: action.data, moviePagesCounter: 1, movies: []};
+        case 'SET_PHRASE':
+            return {...state, searchPhrase:action.data}
+        case 'SEARCH_MOVIES_BY_PHRASE':
+            return {...state, foundMovies: action.data}
+        case 'CHANGE_STATE_OF_DROPDOWN': {
+            return {...state, dropdownIsOpen: action.data}
         }
+        case 'CLEAR_FOUND_MOVIES':
+            return {...state, foundMovies: []}
     }
     return state;
 }

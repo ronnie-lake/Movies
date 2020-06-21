@@ -2,6 +2,7 @@ import React from 'react';
 import Search from './search.jsx';
 import './mainViewport.less';
 import { NavLink } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 class MainViewport extends React.Component {
     render() {
@@ -23,5 +24,9 @@ class MainViewport extends React.Component {
     }
 }
 
-export default MainViewport;
+const mapStateToProps = (state) => ({
+    
+})
+
+export default connect(mapStateToProps)(MainViewport);
 

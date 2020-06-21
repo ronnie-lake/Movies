@@ -3,7 +3,6 @@ import './menu.less'
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import changeMenuItem from '../../actions/menu.jsx';
-// import clearMovies from '../../actions/clearMovies.jsx';
 import getMovies from '../../actions/movies.jsx';
 import getTopRated from '../../actions/getTopRated.jsx';
 import getComingSoon from '../../actions/getComingSoon.jsx';
@@ -35,11 +34,6 @@ const itemIDArr = [
 
 class Menu extends React.Component {
 
-    // switcher = (e) => {
-    //     if (this.props.menuItemID === e.target.id) return;
-    //     this.props.changeMenuItem(e.target.id);
-    // }
-
     render() {
         return(
             <>
@@ -67,7 +61,6 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => bindActionCreators({
     changeMenuItem,
-    // clearMovies,
     getMovies,
     getTopRated,
     getComingSoon,
