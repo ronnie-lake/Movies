@@ -7,7 +7,7 @@ class Footer extends React.Component {
             <div className='footer'>
                 <div className="container">
                     <a  href='#' className="footer__site">Films</a>
-                    <small className="footer__copy">Copyright © 2018 FILMS. DARYA L.</small>
+                    <small className="footer__copy">Copyright © 2020 FILMS. DARYA L.</small>
                 </div>
             </div>
         )

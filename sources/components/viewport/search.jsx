@@ -16,12 +16,11 @@ class Search extends React.Component {
 
         return (
             <div className={`search ${this.props.mainField === true ? 'search__main' : ''}`}>
-                <input className='search__input' type="text" value={this.props.searchPhrase} onChange={(e)=>{
+                <input className='search__input' type="text" name='search' autoсomplete="off" autocorrect='off' spellcheck='false' id='searchInput' value={this.props.searchPhrase} onChange={(e)=>{
                     this.props.setPhrase(e.target.value);
                     this.props.searchMoviesByPhrase(e.target.value);
                 }}/>
                 {
-                    // this.props.foundMovies.length < 1 && this.props.dropdownIsOpen === false ? null : <Dropdown />
                     this.props.dropdownIsOpen === true ?  <Dropdown /> : null
                 }
             </div>

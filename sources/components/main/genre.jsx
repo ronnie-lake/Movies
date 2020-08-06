@@ -39,14 +39,16 @@ class Genre extends React.Component {
             <>
             <MainViewport />
             <div className='main'>
-                <div className='container container_flex'>
+                <div className='container container_nav'>
                     <Menu />
                     <View />
                 </div>
                 <div className="container">
                     <Filter />
                     <Library />
-                    <Loading />
+                    {
+                        this.props.showLoader && <Loading />
+                    }
                 </div>
             </div>
             </>
@@ -57,7 +59,8 @@ class Genre extends React.Component {
 const mapStateToProps = (state) => ({
     moviePagesCounter: state.moviePagesCounter,
     activeGenreID: state.activeGenreID,
-    genres: state.genres
+    genres: state.genres,
+    showLoader: state.showLoader
 })
 
 const mapDispatchToProps = (dispatch) => bindActionCreators({

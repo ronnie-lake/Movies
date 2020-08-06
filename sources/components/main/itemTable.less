@@ -7,6 +7,27 @@
     justify-content: flex-start;
     margin-bottom: 10px;
 
+    @media (max-width: 1650px) {
+        
+    }
+
+    @media (max-width: 1200px) {
+          
+    }
+
+    @media (max-width: 992px) { 
+        flex-direction: column;
+        align-items: center;
+    }
+
+    @media (max-width: 768px) {  
+
+    }
+
+    @media (max-width: 576px) {
+
+    }
+
     &__img-wrapper {
         border-radius: 5px;
         width: 230px;
@@ -19,6 +40,12 @@
 
         &:hover .item-table__hover {
             display: flex;
+        }
+
+        @media (max-width: 992px) { 
+            width: 270px;
+            height: 270px;
+            margin: 0;
         }
     }
 
@@ -49,7 +76,7 @@
         display: inline-block;
         width: 82px;
         height: 82px;
-        background: url(img/play.png) no-repeat;
+        background: url(/img/play.png) no-repeat;
         background-size: 100%;
         margin-bottom: 10px;
         cursor: pointer;
@@ -66,16 +93,20 @@
     &__info {
         position: relative;
         padding: 15px 0;
+
+        @media (max-width: 992px) { 
+            text-align: center;
+        }
     }
 
     &__name {
         white-space: nowrap;
         font-family: 'Open Sans', sans-serif;
-        font-size: 22px;
+        font-size: 19px;
         font-weight: 700;
-        color: #000;
+        color: #262626;
         text-transform: uppercase;
-        margin: 0 29px 15px 0;
+        margin: 0 29px 10px 0;
     }
 
     &__point {
@@ -100,11 +131,15 @@
 
     &__text {
         font-family: 'Open Sans', sans-serif;
-        font-size: 18px;
-        font-weight: 400;
-        color: #000;
-        margin: 27px 0 10px 0;
+        font-size: 16px;
+        font-weight: 400;    
+        color: #262626;
+        margin: 20px 0 10px 0;
         line-height: 25px;
         text-overflow: ellipsis;
+
+        @media (max-width: 1200px) {
+            line-height: 23px;
+        }
     }
 }

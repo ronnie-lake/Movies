@@ -1,11 +1,26 @@
 .main-viewport {
     height: 300px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
     position: relative;
-    padding: 19px 50px;
     background: linear-gradient(0deg, rgba(0,0,0,0.8) 0%, transparent 36%, rgba(255,255,255,0) 45%, rgba(0,0,0,0.9) 100%);
+    
+    &__img-wrapper {
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+        height: 100%;
+    }
+    
+    &__content-wrapper {
+        padding: 19px 50px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
 
     &__img {
         position: absolute;

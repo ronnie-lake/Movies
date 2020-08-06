@@ -23,7 +23,7 @@ class ItemTable extends React.Component {
                 <div className="item-table__img-wrapper">
                     <img src={`https://image.tmdb.org/t/p/w500${poster_path}`} className="item-table__img" />
                     <div className="item-table__hover">
-                        <NavLink exact to='/detailed'>
+                        <NavLink exact to={`/detailed/${this.props.id}`}>
                             <span className="item-table__play"></span>
                         </NavLink>
                         <span className="item-table__watch">Watch Now</span>
@@ -32,7 +32,9 @@ class ItemTable extends React.Component {
                 <div className="item-table__info">
                     <h4 className='item-table__name'>{title}</h4>
                         <span className='item-table__genres'>{this.showGenre(genre_ids).join(', ')}</span>
-                        <Rating point={vote_average} pointBlue={true} />
+                        {
+                            !!vote_average && <Rating point={vote_average} pointBlue={true} />
+                        }
                         <p className="item-table__text">{overview}</p>
                 </div>
             </div>

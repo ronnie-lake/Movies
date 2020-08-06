@@ -1,6 +1,10 @@
 .search {
     position: relative;
 
+    @media (max-width: 768px) { 
+        margin-top: 50px;
+    }
+
     &:after {
         content: '';
         position: absolute;
@@ -8,7 +12,7 @@
         top: 10px;
         height: 24px;
         width: 22px;
-        background: url(img/search-icon.png) no-repeat;
+        background: url(/img/search-icon.png) no-repeat;
         background-size: 100%;
     }
 
@@ -25,6 +29,17 @@
         font-weight: 400;
         font-size: 25px;
         line-height: 30px;
+
+        @media (max-width: 768px) {  
+            width: 400px;
+            font-size: 20px;
+            padding: 10px 40px 10px 10px;
+        }
+    
+        @media (max-width: 576px) {
+            width: 330px;
+        }
+
     }
 
     &__main {
@@ -37,5 +52,15 @@
         border-radius: 6px;
         padding: 13px 44px 13px 14px;
         font-size: 22px;
+
+        @media (max-width: 768px) {  
+            width: 400px;
+            font-size: 20px;
+            padding: 10px 40px 10px 10px;
+        }
+    
+        @media (max-width: 576px) {
+            width: 350px;
+        }
     }
 }

@@ -1,10 +1,18 @@
 .menu {
 
+    @media (max-width: 992px) { 
+        margin-left: 8px;
+    }
+
+    @media (max-width: 768px) {  
+        display: none;
+    }
+
     &__item {
         display: inline-block;
         margin-right: 40px;
         font-family: 'Open Sans', sans-serif;
-        font-size: 19px;
+        font-size: 18px;
         font-weight: 600;
         color: #0aaee4;
         position: relative;
@@ -14,6 +22,20 @@
         &_active {
             border-bottom: 2px solid #0aaee4;
             margin-bottom: -2px;
+        }
+
+        @media (max-width: 992px) { 
+            font-size: 16px; 
+            margin-right: 30px;
+        }
+    
+        @media (max-width: 768px) {  
+            font-size: 15px; 
+            margin-right: 25px;
+        }
+    
+        @media (max-width: 576px) {    
+
         }
     
         &_dropout {
@@ -60,6 +82,65 @@
         &:hover {
             background-color: #0aaee4;
             color: #fff;
+        }
+    }
+}
+
+.hiddenmenu {
+    display: none;
+    position: relative;
+    
+    @media (max-width: 768px) {  
+        display: block;
+    }
+
+    &:hover .hiddenmenu__list {
+        display: block;
+    }
+    
+    &__chosen {
+        font-family: 'Open Sans', sans-serif;
+        font-size: 20px;
+        font-weight: 600;
+        color: #3bb4e0;
+        width: 170px;
+        padding: 0 9px;
+        box-sizing: border-box;
+        
+        &::after {
+            content: '';
+            display: inline-block;
+            width: 13px;
+            height: 9px;
+            background: url(/img/drop.png) no-repeat;
+            background-size: 100%;
+            margin-left: 10px;
+            margin-bottom: -4px;
+        }
+    }
+    
+    &__list {
+        display: none;
+        list-style: none;
+        margin: 0;
+        position: absolute;
+        background-color: #f5f6f6;
+        top: 25px;
+        left: 0;
+        width: 100%;
+        z-index: 9999;
+    }
+    
+    &__item {
+        font-family: 'Open Sans', sans-serif;
+        font-size: 17px;
+        font-weight: 600;
+        color: #3bb4e0;
+        text-decoration: none;
+        padding: 15px 10px;
+
+        &:hover {
+            background-color: #f2f2f2;;
         }
     }
 }

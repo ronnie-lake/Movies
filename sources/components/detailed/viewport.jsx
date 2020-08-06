@@ -4,12 +4,17 @@ import Search from '../viewport/search.jsx';
 import Film from './film.jsx';
 import Description from './description.jsx';
 import { NavLink } from 'react-router-dom';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 
 class Viewport extends React.Component {
     render() {
         return (
             <div className='viewport'>
-                <img className='viewport__img' src="img/cover-image.jpg" />
+                {
+                    this.props.currentMovie.backdrop_path ? <img className='viewport__img' src={`https://image.tmdb.org/t/p/w1920_and_h800_multi_faces${this.props.currentMovie.backdrop_path}`} /> : 
+                    <img src="/img/placeholder.png" className='viewport__img' alt=""/>
+                }
                 <div className='header'>
                     <div className='container container_flex'>
                         <NavLink exact to='/trending'>
@@ -27,5 +32,14 @@ class Viewport extends React.Component {
     }
 }
 
-export default Viewport;
+
+const mapStateToProps = (state) => ({
+    currentMovie: state.currentMovie
+});
+
+const mapDispatchToProps = (dispatch) => bindActionCreators({
+
+}, dispatch);
+
+export default connect(mapStateToProps, mapDispatchToProps)(Viewport);
 

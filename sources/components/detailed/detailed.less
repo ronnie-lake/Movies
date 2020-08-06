@@ -1,0 +1,223 @@
+.detailed {
+
+    &__background {
+        position: absolute;
+        transform: translate(-50%, -50%);
+        top: 50%;
+        left: 50%;
+        z-index: -1;
+        height: 100%;
+        opacity: .15;
+    }
+    
+    &__caption {
+        font-family: 'Open Sans', sans-serif;
+        font-size: 32px;
+        margin: 20px 0 15px 0;
+        font-weight: 800;
+        color: #262626;
+        text-transform: uppercase;
+
+        
+        @media (max-width: 1650px) {
+            margin: 15px 0 10px 0;
+        }
+        @media (max-width: 1200px) {
+            font-size: 29px;
+        }
+    
+        @media (max-width: 992px) { 
+            display: block;
+            text-align: center;
+        }
+    
+        @media (max-width: 768px) {  
+             
+        }
+    
+        @media (max-width: 576px) {
+            
+        }
+    }
+    
+    &__tagline {
+        font-style: italic;
+        font-family: 'Open Sans', sans-serif;
+        font-size: 18px;
+        font-weight: 400;
+        color: #262626;
+
+        @media (max-width: 992px) { 
+            text-align: center;
+            display: block;
+        }
+    
+        @media (max-width: 768px) {  
+             
+        }
+    
+        @media (max-width: 576px) {
+            
+        }
+    }
+
+    &__description {
+        display: inline-block;
+        vertical-align: top;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        align-items: stretch;
+        width: 1000px;
+
+        @media (max-width: 1650px) {
+            width: 740px;
+        }
+    
+        @media (max-width: 1200px) {
+           width: 588px;
+        }
+
+        @media (max-width: 992px) { 
+            margin: 0 20px;
+            display: block;
+            width: 700px;
+        }
+    
+        @media (max-width: 768px) {  
+            margin: 0 15px;
+            width: 545px;
+        }
+    
+        @media (max-width: 576px) {
+            width: 380px;
+        }
+    }
+    
+    &__img-wrapper {
+        display: inline-block;
+        width: 360px;
+        padding: 15px;
+        background-color: #fff;
+        margin-right: 60px;
+
+        @media (max-width: 1650px) {
+            width: 300px; 
+            margin: 0 25px;
+        }
+    
+        @media (max-width: 1200px) {
+            width: 250px;
+        }
+
+        @media (max-width: 992px) { 
+            margin: 0 auto;
+            width: 300px;
+            display: block;
+        }
+    
+        @media (max-width: 768px) {  
+             
+        }
+    
+        @media (max-width: 576px) {
+            
+        }
+    }
+    
+    &__img {
+        width: 100%;
+    }
+
+    &__overview-caption {
+        font-family: 'Open Sans', sans-serif;
+        font-size: 20px;
+        font-weight: 800;
+        color: #3bb4e0;
+        text-transform: uppercase;
+        margin-top: 20px;
+
+        @media (max-width: 1650px) {
+            font-size: 19px;
+            line-height: 10px;
+        }
+
+        @media (max-width: 1200px) {
+            font-size: 18px;
+            line-height: 8px;
+        }
+    
+        @media (max-width: 992px) { 
+            
+        }
+    
+        @media (max-width: 768px) {  
+             
+        }
+    
+        @media (max-width: 576px) {
+            
+        }
+    }
+    
+    &__overview {
+        width: auto;
+        padding: 20px 0;
+        color: #141414;
+        font-family: 'Open Sans', sans-serif;
+        font-size: 18px;
+        font-weight: 400;  
+        line-height: 28px;
+
+        @media (max-width: 1650px) {
+            font-size: 18px;
+            line-height: 24px;
+        }
+    
+        @media (max-width: 1200px) {
+           
+        }
+    
+        @media (max-width: 992px) { 
+            
+        }
+    
+        @media (max-width: 768px) {  
+            font-size: 16px;    
+        }
+    
+        @media (max-width: 576px) {
+            
+        }
+    }
+    
+    &__info {
+        display: grid;
+        grid-template-columns: 90px 320px;
+        grid-auto-rows: auto;
+        padding: 15px;
+
+    }
+    
+    &__info-caption {
+        padding: 8px 8px 8px 4px;
+        font-family: 'Open Sans', sans-serif;
+        font-size: 15px;
+        font-weight: 800;
+        color: #3bb4e0;
+        text-transform: uppercase;
+        text-align: end;
+
+        &:after {
+            content: ':';
+            margin-left: 3px;
+        }
+    }
+
+    &__info-value {
+        padding: 8px 8px 8px 4px;
+        font-family: 'Open Sans', sans-serif;
+        font-size: 16px;
+        font-weight: 400;
+        color: #262626;
+    }
+}

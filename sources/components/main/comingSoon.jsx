@@ -38,13 +38,15 @@ class ComingSoon extends React.Component {
             <>
             <MainViewport />
             <div className='main'>
-                <div className='container container_flex'>
+                <div className='container container_nav'>
                     <Menu />
                     <View />
                 </div>
                 <div className="container">
                     <Library />
-                    <Loading />
+                    {
+                        this.props.showLoader && <Loading />
+                    }
                 </div>
             </div>
             </>
@@ -53,7 +55,8 @@ class ComingSoon extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-    moviePagesCounter: state.moviePagesCounter
+    moviePagesCounter: state.moviePagesCounter,
+    showLoader: state.showLoader
 })
 
 const mapDispatchToProps = (dispatch) => bindActionCreators({

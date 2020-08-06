@@ -47,6 +47,21 @@ class Menu extends React.Component {
                     })
                 }
             </ul>
+            <div className="hiddenmenu">
+                <div className="hiddenmenu__chosen">{itemIDArr.find((el) => {
+                    return el.id === this.props.menuItemID
+                }).text}</div>
+                <ul className='hiddenmenu__list'>
+                    {
+                        itemIDArr.map((el, index) => {
+                            return <NavLink key={index} exact to={`/${el.link}`}>
+                                    <li className='hiddenmenu__item'id={el.id}>{el.text}</li>
+                                    </NavLink>
+                        })
+                    }
+                </ul>
+            </div>
+
             </>
         )
     }

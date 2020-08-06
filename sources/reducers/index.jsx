@@ -7,13 +7,16 @@ const initialState = {
     activeGenreID: null,
     searchPhrase: '',
     foundMovies: [],
-    dropdownIsOpen: false
+    dropdownIsOpen: false,
+    currentMovie: {},
+    showLoader: false,
+    similarMovies: [],
+    videoArr: {}
 }
 
 window.state = initialState;
 
 function reducer (state = initialState, action) {
-    console.log(action);
     switch(action.type){
         case 'CHANGE_VIEW':
             return {...state, gridIsEnabled: action.data};
@@ -31,11 +34,20 @@ function reducer (state = initialState, action) {
             return {...state, searchPhrase:action.data}
         case 'SEARCH_MOVIES_BY_PHRASE':
             return {...state, foundMovies: action.data}
-        case 'CHANGE_STATE_OF_DROPDOWN': {
+        case 'CHANGE_STATE_OF_DROPDOWN':
             return {...state, dropdownIsOpen: action.data}
-        }
         case 'CLEAR_FOUND_MOVIES':
             return {...state, foundMovies: []}
+        case 'SHOW_LOADER':
+            return {...state, showLoader: action.data}
+        case 'GET_CURRENT_MOVIE': 
+            return {...state, currentMovie: action.data, searchPhrase: ''}
+        case 'CLEAR_CURRENT_MOVIE': 
+            return {...state, currentMovie: {}}
+        case 'GET_SIMILAR_MOVIES':
+            return {...state, similarMovies: action.data}
+        case 'GET_VIDEO': 
+            return {...state, videoArr: action.data}
     }
     return state;
 }

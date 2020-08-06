@@ -38,13 +38,16 @@ class Trending extends React.Component {
             <>
             <MainViewport />
             <div className='main'>
-                <div className='container container_flex'>
+                <div className='container container_nav'>
                     <Menu />
                     <View />
                 </div>
                 <div className="container">
                     <Library />
-                    <Loading />
+                    {
+                        this.props.showLoader && <Loading />
+                    }
+                    
                 </div>
             </div>
             </>
@@ -54,7 +57,8 @@ class Trending extends React.Component {
 
 const mapStateToProps = (state) => ({
     moviePagesCounter: state.moviePagesCounter,
-    menuItemID: state.menuItemID
+    menuItemID: state.menuItemID,
+    showLoader: state.showLoader
 })
 
 const mapDispatchToProps = (dispatch) => bindActionCreators({

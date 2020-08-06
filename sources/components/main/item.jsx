@@ -3,6 +3,8 @@ import './item.less';
 import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom'; 
 import Detailed from '../detailed/detailed.jsx';
+import getCurrentMovie from '../../actions/getCurrentMovie.jsx';
+import { bindActionCreators } from 'redux';
 
 class Item extends React.Component {
     constructor(props) {
@@ -27,14 +29,14 @@ class Item extends React.Component {
     }
 
     render() {
-        const { title, vote_average, genre_ids, poster_path, overview } = this.props;
+        const { title, vote_average, genre_ids, poster_path, overview, id } = this.props;
         return (
             <div className='item'>
                     <img src={`https://image.tmdb.org/t/p/w500${poster_path}`} className="item__img" />
                     <div className="item__main">
                         <div className="item__hover">
-                             <NavLink to='/detailed'>
-                                <span className="item__play"></span>
+                             <NavLink to={`/detailed/${this.props.id}`}>
+                                <span className="item__play" ></span>
                             </NavLink>
                             <span className="item__watch">Watch Now</span>
                             <div className="item__button" onClick={this.switcher}>View Info</div>
@@ -42,7 +44,9 @@ class Item extends React.Component {
                     {
                         this.state.isInfoEnabled === false && <div className="item__description">
                             <h4 className='item__name'>{title}</h4>
-                            <span className="item__point">{Math.trunc(vote_average / 2 * 10) / 10}</span>
+                            {
+                                !!vote_average && <span className="item__point">{Math.trunc(vote_average / 2 * 10) / 10}</span>
+                            }
                             <span className='item__genres'>{this.showGenre(genre_ids).join(', ')}</span>
                         </div>
                     }
@@ -52,7 +56,9 @@ class Item extends React.Component {
                         <div className="info__wrapper">
                             <span className='info__cancel' onClick={this.switcher}></span>
                             <h4 className='info__name'>{title}</h4>
-                            <span className="info__point">{Math.trunc(vote_average / 2 * 10) / 10}</span>
+                            {
+                                !!vote_average && <span className="info__point">{Math.trunc(vote_average / 2 * 10) / 10}</span>
+                            }
                             <span className='info__genres'>{this.showGenre(genre_ids).join(', ')}</span>
                             <p className="info__text">{overview}</p>
                         </div>
@@ -65,6 +71,10 @@ class Item extends React.Component {
 
 const mapStateToProps = (state) => ({
     genres: state.genres
-})
+});
 
-export default connect(mapStateToProps)(Item);
+const mapDispatchToProps = (dispatch) => bindActionCreators({
+    getCurrentMovie
+}, dispatch);
+
+export default connect(mapStateToProps, mapDispatchToProps)(Item);

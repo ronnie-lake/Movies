@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import getMovieOfCetainGenre from '../../actions/getMovieOfCetainGenre.jsx';
 import changeGenreID from '../../actions/changeGenreID.jsx';
+import moviePagesCounterChange from '../../actions/moviePagesCounterChange.jsx';
 
 class Filter extends React.Component {
 
@@ -39,7 +40,8 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => bindActionCreators({
     getMovieOfCetainGenre,
-    changeGenreID
+    changeGenreID,
+    moviePagesCounterChange
 }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(Filter);

@@ -1,0 +1,28 @@
+.video {
+
+    &__wrapper {
+        display: flex;
+        justify-content: center;
+        flex-wrap: nowrap;
+    }
+
+    &__item {
+        width: 750px;
+        height: 422px;
+
+        @media (max-width: 992px) { 
+            width: 700px;
+            height: 394px;
+        }
+    
+        @media (max-width: 768px) {  
+            width: 560px;
+            height: 315px;
+        }
+    
+        @media (max-width: 576px) {
+            width: 360px;
+            height: 203px;
+        }
+    }
+}

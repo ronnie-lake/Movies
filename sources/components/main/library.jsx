@@ -1,18 +1,12 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import './library.less';
 import Item from './item.jsx';
 import ItemTable from './itemTable.jsx';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import getMovies from '../../actions/movies.jsx';
-import getTopRated from '../../actions/getTopRated.jsx';
-import getComingSoon from '../../actions/getComingSoon.jsx';
-import getMovieOfCetainGenre from '../../actions/getMovieOfCetainGenre.jsx';
 
 class Library extends React.Component {
     render() {
         return (
-            <>
                 <div className={`library ${this.props.gridIsEnabled === true ? '' : 'library_block'}`}>
                     {
                         this.props.movies.map((el, index) => {
@@ -20,26 +14,12 @@ class Library extends React.Component {
                         })
                     }
                 </div>
-            </>
         )
     }
 }
 const mapStateToProps = (state) => ({
     movies: state.movies, 
-    genres: state.genres,
-    gridIsEnabled: state.gridIsEnabled,
-    menuItemID: state.menuItemID,
-    topRated: state.topRated,
-    upComing: state.upComing,
-    movieOfCertainGenre: state.movieOfCertainGenre,
-    moviePagesCounter: state.moviePagesCounter,
-    activeGenreID: state.activeGenreID
+    gridIsEnabled: state.gridIsEnabled
 })
 
-const mapDispatchToProps = (dispatch) => bindActionCreators({
-    getMovies,
-    getTopRated,
-    getComingSoon,
-    getMovieOfCetainGenre
-}, dispatch);
-export default connect(mapStateToProps, mapDispatchToProps)(Library);
+export default connect(mapStateToProps)(Library);

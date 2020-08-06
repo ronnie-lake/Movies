@@ -1,16 +1,27 @@
 import React from 'react';
-import './description.less'
+import './description.less';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 
 class Description extends React.Component {
+
+    slide(e, blockID){
+        e.preventDefault();
+        document.getElementById(blockID).scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          })
+    }
+
     render() {
         return (
             <div className='description'>
                 <p className='description__text'>
-                There are growing dangers in the wizarding world of 1926 New York.  Something mysterious is leaving a path of destruction in the streets, threatening to expose the wizarding 
+                    {this.props.currentMovie.overview}
                 </p>
                 <div className='description__button-wrapper'>
-                    <div className='description__button'>Watch Now</div>
-                    <div className='description__button'>View info</div>
+                    <div className='description__button' onClick={(e) => this.slide(e, 'detailedDescription')}>View info</div>
+                    <div className='description__button' onClick={(e) => this.slide(e, 'videoItem')}>Watch Now</div>
                 </div>
 
             </div>
@@ -18,4 +29,12 @@ class Description extends React.Component {
     }
 }
 
-export default Description;
+const mapStateToProps = (state) => ({
+    currentMovie: state.currentMovie
+});
+
+const mapDispatchToProps = (dispatch) => bindActionCreators({
+    
+}, dispatch);
+
+export default connect(mapStateToProps, mapDispatchToProps)(Description);
