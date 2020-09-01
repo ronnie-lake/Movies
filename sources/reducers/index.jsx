@@ -46,8 +46,10 @@ function reducer (state = initialState, action) {
             return {...state, currentMovie: {}}
         case 'GET_SIMILAR_MOVIES':
             return {...state, similarMovies: action.data}
-        case 'GET_VIDEO': 
+        case 'GET_VIDEO': {
+            console.log(action.data);
             return {...state, videoArr: action.data}
+        }
     }
     return state;
 }

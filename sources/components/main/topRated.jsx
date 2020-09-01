@@ -10,8 +10,6 @@ import Library from './library.jsx';
 import Loading from './loading.jsx';
 import changeMenuItem from '../../actions/menu.jsx';
 
-
-
 class TopRated extends React.Component {
 
     componentDidMount(){
@@ -37,21 +35,21 @@ class TopRated extends React.Component {
 
     render(){
         return(
-            <>
-            <MainViewport />
-            <div className='main'>
-                <div className='container container_nav'>
-                    <Menu />
-                    <View />
-                </div>
-                <div className="container">
-                    <Library />
-                    {
-                        this.props.showLoader && <Loading />
-                    }
+            <div className='content-container'>
+                <MainViewport />
+                <div className='main'>
+                    <div className='container container_nav'>
+                        <Menu />
+                        <View />
+                    </div>
+                    <div className="container">
+                        <Library />
+                        {
+                            this.props.showLoader && <Loading />
+                        }
+                    </div>
                 </div>
             </div>
-            </>
         )
     }
 }

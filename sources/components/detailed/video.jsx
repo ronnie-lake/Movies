@@ -8,7 +8,7 @@ class Video extends React.Component {
     componentDidMount(){
         this.props.getVideoOfCurrentMovie(this.props.currentMovie.id);
     }
-
+    
     componentDidUpdate(){
         if(this.props.videoArr.id !== this.props.currentMovie.id){
             this.props.getVideoOfCurrentMovie(this.props.currentMovie.id);
@@ -27,8 +27,10 @@ class Video extends React.Component {
         }
 
         return( 
-            <div className="video__wrapper" id='videoItem'>
-                <iframe className='video__item' width="750" height="422" src={`https://www.youtube.com/embed/${this.findLink()}`} frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+            <div className="container">
+                <div className="video__wrapper" id='videoItem'>
+                    <iframe key={this.props.videoArr.id} className='video__item' width="750" height="422" src={`https://www.youtube.com/embed/${this.findLink()}`} frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+                </div>
             </div>
         )
     }

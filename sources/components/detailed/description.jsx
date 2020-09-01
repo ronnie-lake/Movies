@@ -21,7 +21,10 @@ class Description extends React.Component {
                 </p>
                 <div className='description__button-wrapper'>
                     <div className='description__button' onClick={(e) => this.slide(e, 'detailedDescription')}>View info</div>
-                    <div className='description__button' onClick={(e) => this.slide(e, 'videoItem')}>Watch Now</div>
+                    {
+                        this.props.videoArr.id && this.props.videoArr.results.length ? 
+                        <div className='description__button' onClick={(e) => this.slide(e, 'videoItem')}>Watch Now</div> : null
+                    }
                 </div>
 
             </div>
@@ -30,7 +33,8 @@ class Description extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-    currentMovie: state.currentMovie
+    currentMovie: state.currentMovie,
+    videoArr: state.videoArr
 });
 
 const mapDispatchToProps = (dispatch) => bindActionCreators({

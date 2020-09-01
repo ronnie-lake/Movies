@@ -8,8 +8,23 @@ a {
     cursor: pointer;
 }
 
+html {
+    height: 100%;
+}
+
 body {
     overflow: scroll;
+    height: 100%;
+}
+
+#app {
+    height: 100%;
+}
+
+.app {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 .container {
@@ -54,13 +69,17 @@ body {
     }
 }
 
+.content-container {
+    height: 100%;
+    flex-grow: 1;
+}
+
 .main {
     padding: 58px 0 84px 0;
     background-color: #f5f6f6;
 
     &_detailed {
         position: relative;
-        height: 825px;
         background-color: transparent;
         overflow: hidden;
     }

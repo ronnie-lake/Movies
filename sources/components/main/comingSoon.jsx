@@ -35,7 +35,7 @@ class ComingSoon extends React.Component {
 
     render(){
         return(
-            <>
+            <div className='content-container'>
             <MainViewport />
             <div className='main'>
                 <div className='container container_nav'>
@@ -49,7 +49,7 @@ class ComingSoon extends React.Component {
                     }
                 </div>
             </div>
-            </>
+            </div>
         )
     }
 }

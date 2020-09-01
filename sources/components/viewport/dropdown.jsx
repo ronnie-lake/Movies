@@ -28,7 +28,7 @@ class Dropdown extends React.Component {
                             this.props.foundMovies.map((el, index) => {
                                 return <NavLink exact to={`/detailed/${el.id}`}>
                                     <li className='dropdown__item' key={index} onClick={() => this.props.getCurrentMovie(el.id)}>
-                                        <span className='dropdown__poster'><img src={`https://image.tmdb.org/t/p/w500${el.poster_path}`} className='dropdown__img' alt=""/></span>
+                                        <span className='dropdown__poster'><img src={el.poster_path ? `https://image.tmdb.org/t/p/w500${el.poster_path}` : '/img/placeholder-mini.png'} className='dropdown__img' alt=""/></span>
                                         <div className='dropdown__info'>
                                             <span className='dropdown__name'>{el.original_title}</span>
                                             {

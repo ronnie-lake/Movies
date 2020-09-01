@@ -8,6 +8,7 @@ import clearCurrentMovie from '../../actions/clearCurrentMovie.jsx';
 import SimilarMovies from './similarMovies.jsx';
 import getSimilarMovies from '../../actions/getSimilarMovies.jsx';
 import Video from './video.jsx';
+import Loading from '../main/loading.jsx'
  
 class Detailed extends React.Component {
 
@@ -18,7 +19,12 @@ class Detailed extends React.Component {
 
     componentWillUnmount(){
         this.props.clearCurrentMovie();
-        
+    }
+
+    componentDidUpdate(){
+        if(+this.props.currentMovie.id !== +this.props.match.params.movieID) {
+            this.props.getCurrentMovie(this.props.match.params.movieID);
+        }
     }
 
     getYear(){
@@ -37,19 +43,33 @@ class Detailed extends React.Component {
 
     render() {
         if(!this.props.currentMovie.id){
-            return null;
+            return <Loading />;
         }
         return(
-            <>
+            <div className='detailed'>
                 <Viewport />
-                <div className='main main_detailed'>
-                {
-                    this.props.currentMovie.backdrop_path && <img className='detailed__background' src={`https://image.tmdb.org/t/p/w1920_and_h800_multi_faces${this.props.currentMovie.backdrop_path}`} /> 
-                }
+                <div 
+                    className='main main_detailed'
+                    >
+                    <div 
+                        className="detailed__background"
+                            style = {
+                                {
+                                    backgroundImage: 
+                                        this.props.currentMovie.backdrop_path ? 
+                                        `URL(https://image.tmdb.org/t/p/w1920_and_h800_multi_faces${this.props.currentMovie.backdrop_path})` :
+                                        null
+                                }
+                            }
+                        >
+                    </div>
                     <div className='container'>
-                            <div className="detailed__img-wrapper">
-                                <img className="detailed__img" src={`https://image.tmdb.org/t/p/w500${this.props.currentMovie.poster_path}`} alt=""/>
-                            </div>
+                            {
+                                this.props.currentMovie.poster_path  &&
+                                <div className="detailed__img-wrapper">
+                                    <img className="detailed__img" src={`https://image.tmdb.org/t/p/w500${this.props.currentMovie.poster_path}`} alt=""/>
+                                </div>
+                            }
                             <div className="detailed__description" id='detailedDescription'>
                             <h2 className='detailed__caption'>{this.props.currentMovie.title}</h2>
                             {
@@ -112,15 +132,11 @@ class Detailed extends React.Component {
                         </div>
                         <SimilarMovies />
                     </div>
-                </div>   
-                <div className="main">
-                    <div className="container">
-                        {
-                            this.props.currentMovie.id && <Video />
-                        }
-                    </div>
-                </div>
-            </>
+                </div> 
+                    {
+                        this.props.currentMovie.id && <Video />
+                    }
+            </div>
         )
     }
 }

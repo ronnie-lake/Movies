@@ -11,10 +11,17 @@ class Viewport extends React.Component {
     render() {
         return (
             <div className='viewport'>
-                {
-                    this.props.currentMovie.backdrop_path ? <img className='viewport__img' src={`https://image.tmdb.org/t/p/w1920_and_h800_multi_faces${this.props.currentMovie.backdrop_path}`} /> : 
-                    <img src="/img/placeholder.png" className='viewport__img' alt=""/>
-                }
+                <div 
+                    className="viewport__background"
+                    style={
+                        {
+                            backgroundImage: this.props.currentMovie.backdrop_path ? 
+                                `URL(https://image.tmdb.org/t/p/w1920_and_h800_multi_faces${this.props.currentMovie.backdrop_path})` : 
+                                "URL(/img/placeholder.png)"
+                        }
+                    }
+                >
+                </div>
                 <div className='header'>
                     <div className='container container_flex'>
                         <NavLink exact to='/trending'>

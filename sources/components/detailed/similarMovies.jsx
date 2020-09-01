@@ -26,7 +26,7 @@ class SimilarMovies extends React.Component {
                     this.props.similarMovies.slice(0, 13).map((el, index) => {
                         return (
                         <NavLink exact to={`/detailed/${el.id}`}>
-                            <li className='similar-movies__item' key={index} onClick={() => this.props.getCurrentMovie(el.id)}>
+                            <li className='similar-movies__item' key={index}>
                                 <div className='similar-movies__img-wrapper'>
                                     <img className='similar-movies__img' src={`https://image.tmdb.org/t/p/w500${el.poster_path}`} alt=""/>
                                 </div>

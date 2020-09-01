@@ -30,7 +30,7 @@ class App extends React.Component {
     render() {
         return (
             <BrowserRouter>
-                <div>
+                <div className='app'>
                     <ScrollToTop />
                     <Redirect exact from='/' to='/trending' />
                     <Route path='/trending' component={Trending} />

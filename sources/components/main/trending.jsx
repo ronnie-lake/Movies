@@ -35,22 +35,22 @@ class Trending extends React.Component {
 
     render(){
         return(
-            <>
-            <MainViewport />
-            <div className='main'>
-                <div className='container container_nav'>
-                    <Menu />
-                    <View />
-                </div>
-                <div className="container">
-                    <Library />
-                    {
-                        this.props.showLoader && <Loading />
-                    }
-                    
+            <div className='content-container'>
+                <MainViewport />
+                <div className='main'>
+                    <div className='container container_nav'>
+                        <Menu />
+                        <View />
+                    </div>
+                    <div className="container">
+                        <Library />
+                        {
+                            this.props.showLoader && <Loading />
+                        }
+                        
+                    </div>
                 </div>
             </div>
-            </>
         )
     }
 }
