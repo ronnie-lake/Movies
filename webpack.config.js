@@ -3,13 +3,13 @@ module.exports = {
     entry: './sources/app.jsx',
     output: {
         filename: 'build.js',
-        path: path.resolve(__dirname, 'public')
+        path: '/'
     },
     watch: true,
     devtool: 'eval-source-map',
     mode: 'development',
     devServer: {
-      contentBase: path.resolve(__dirname, 'public'),
+      contentBase: '/',
       historyApiFallback: true
     },
     module: {
